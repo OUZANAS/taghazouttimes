@@ -34,39 +34,73 @@ const resources = {
       // Company info
       companyName: 'SaaSify',
       companyTagline: 'Empower your service business with our comprehensive platform. From listings to bookings, we\'ve got everything you need to grow.',
+      trustedBy: 'Trusted by 1000+ Service Providers'
     },
     home: {
       // Hero section
-      heroTitle: 'Build Your Service Business Website in Minutes',
+      heroTitle: 'Build Your Service Business Website in',
+      heroTitleHighlight: 'Minutes',
       heroSubtitle: 'Perfect for surf schools, rental properties, tour operators, and hospitality businesses. Create stunning websites with integrated booking systems.',
-      trustedBy: 'Trusted by 1000+ Service Providers',
       
       // Features
-      noSetupFees: 'No setup fees',
-      freeTrial: '14-day free trial',
-      cancelAnytime: 'Cancel anytime',
+      features: {
+        title: 'Our Platform',
+        subtitle: 'Everything You Need to Succeed',
+        description: 'Built specifically for service-based businesses with all the tools you need',
+        quickSetup: {
+          title: 'Quick Setup',
+          description: 'Launch your professional website in minutes with our easy-to-use templates.'
+        },
+        multilingual: {
+          title: 'Multilingual Support',
+          description: 'Reach global audiences with built-in translation and localization features.'
+        },
+        secure: {
+          title: 'Secure & Reliable',
+          description: 'Enterprise-grade security with 99.9% uptime guarantee for your business.'
+        },
+        support: {
+          title: '24/7 Support',
+          description: 'Get help whenever you need it with our dedicated customer support team.'
+        }
+      },
       
       // Benefits
-      featuresTitle: 'Everything You Need to Succeed',
-      featuresSubtitle: 'Built specifically for service-based businesses with all the tools you need',
+      benefits: {
+        noSetupFees: 'No setup fees',
+        freeTrial: '14-day free trial',
+        cancelAnytime: 'Cancel anytime'
+      },
       
       // How it works
-      howItWorksTitle: 'How It Works',
-      howItWorksSubtitle: 'Get started in just three simple steps',
-      step1Title: 'Sign Up',
-      step1Description: 'Create your account and choose your plan',
-      step2Title: 'Customize',
-      step2Description: 'Set up your brand and configure your services',
-      step3Title: 'Launch',
-      step3Description: 'Go live and start accepting bookings',
+      howItWorks: {
+        title: 'How It Works',
+        subtitle: 'Get started in just three simple steps',
+        step1: {
+          title: 'Sign Up',
+          description: 'Create your account and choose your plan'
+        },
+        step2: {
+          title: 'Customize',
+          description: 'Set up your brand and configure your services'
+        },
+        step3: {
+          title: 'Launch',
+          description: 'Go live and start accepting bookings'
+        }
+      },
       
       // Testimonials
-      testimonialsTitle: 'Loved by Service Providers Worldwide',
-      testimonialsSubtitle: 'See what our customers say about their experience',
+      testimonials: {
+        title: 'What Our Customers Say',
+        subtitle: 'Loved by Service Providers Worldwide'
+      },
       
       // CTA
-      ctaTitle: 'Ready to Transform Your Business?',
-      ctaSubtitle: 'Join thousands of service providers who have grown their business with our platform',
+      cta: {
+        title: 'Ready to Transform Your Business?',
+        subtitle: 'Join thousands of service providers who have grown their business with our platform'
+      }
     }
   },
   fr: {
@@ -99,39 +133,73 @@ const resources = {
       // Company info
       companyName: 'SaaSify',
       companyTagline: 'Renforcez votre entreprise de services avec notre plateforme complète. Des annonces aux réservations, nous avons tout ce dont vous avez besoin pour grandir.',
+      trustedBy: 'Approuvé par plus de 1000 prestataires de services'
     },
     home: {
       // Hero section
-      heroTitle: 'Créez votre site web d\'entreprise de services en quelques minutes',
+      heroTitle: 'Créez votre site web d\'entreprise de services en',
+      heroTitleHighlight: 'Minutes',
       heroSubtitle: 'Parfait pour les écoles de surf, les propriétés de location, les tour-opérateurs et les entreprises d\'hospitalité. Créez de superbes sites web avec des systèmes de réservation intégrés.',
-      trustedBy: 'Approuvé par plus de 1000 prestataires de services',
       
       // Features
-      noSetupFees: 'Aucun frais d\'installation',
-      freeTrial: 'Essai gratuit de 14 jours',
-      cancelAnytime: 'Annulez à tout moment',
+      features: {
+        title: 'Notre Plateforme',
+        subtitle: 'Tout ce dont vous avez besoin pour réussir',
+        description: 'Conçu spécifiquement pour les entreprises de services avec tous les outils dont vous avez besoin',
+        quickSetup: {
+          title: 'Configuration rapide',
+          description: 'Lancez votre site web professionnel en quelques minutes avec nos modèles faciles à utiliser.'
+        },
+        multilingual: {
+          title: 'Support multilingue',
+          description: 'Atteignez un public mondial avec des fonctions intégrées de traduction et de localisation.'
+        },
+        secure: {
+          title: 'Sécurisé et fiable',
+          description: 'Sécurité de niveau entreprise avec une garantie de disponibilité de 99,9% pour votre entreprise.'
+        },
+        support: {
+          title: 'Support 24/7',
+          description: 'Obtenez de l\'aide quand vous en avez besoin avec notre équipe de support client dédiée.'
+        }
+      },
       
       // Benefits
-      featuresTitle: 'Tout ce dont vous avez besoin pour réussir',
-      featuresSubtitle: 'Conçu spécifiquement pour les entreprises de services avec tous les outils dont vous avez besoin',
+      benefits: {
+        noSetupFees: 'Aucun frais d\'installation',
+        freeTrial: 'Essai gratuit de 14 jours',
+        cancelAnytime: 'Annulez à tout moment'
+      },
       
       // How it works
-      howItWorksTitle: 'Comment ça marche',
-      howItWorksSubtitle: 'Commencez en seulement trois étapes simples',
-      step1Title: 'S\'inscrire',
-      step1Description: 'Créez votre compte et choisissez votre plan',
-      step2Title: 'Personnaliser',
-      step2Description: 'Configurez votre marque et configurez vos services',
-      step3Title: 'Lancer',
-      step3Description: 'Mettez en ligne et commencez à accepter les réservations',
+      howItWorks: {
+        title: 'Comment ça marche',
+        subtitle: 'Commencez en seulement trois étapes simples',
+        step1: {
+          title: 'S\'inscrire',
+          description: 'Créez votre compte et choisissez votre plan'
+        },
+        step2: {
+          title: 'Personnaliser',
+          description: 'Configurez votre marque et configurez vos services'
+        },
+        step3: {
+          title: 'Lancer',
+          description: 'Mettez en ligne et commencez à accepter les réservations'
+        }
+      },
       
       // Testimonials
-      testimonialsTitle: 'Aimé par les prestataires de services du monde entier',
-      testimonialsSubtitle: 'Découvrez ce que nos clients disent de leur expérience',
+      testimonials: {
+        title: 'Ce que disent nos clients',
+        subtitle: 'Aimé par les prestataires de services du monde entier'
+      },
       
       // CTA
-      ctaTitle: 'Prêt à transformer votre entreprise ?',
-      ctaSubtitle: 'Rejoignez des milliers de prestataires de services qui ont développé leur activité avec notre plateforme',
+      cta: {
+        title: 'Prêt à transformer votre entreprise ?',
+        subtitle: 'Rejoignez des milliers de prestataires de services qui ont développé leur activité avec notre plateforme'
+      }
     }
   },
   ar: {
@@ -164,39 +232,73 @@ const resources = {
       // Company info
       companyName: 'SaaSify',
       companyTagline: 'قوي أعمالك الخدمية مع منصتنا الشاملة. من القوائم إلى الحجوزات، لدينا كل ما تحتاجه للنمو.',
+      trustedBy: 'موثوق به من قبل أكثر من 1000 مقدم خدمة'
     },
     home: {
       // Hero section
-      heroTitle: 'أنشئ موقع أعمالك الخدمية في دقائق',
+      heroTitle: 'أنشئ موقع أعمالك الخدمية في',
+      heroTitleHighlight: 'دقائق',
       heroSubtitle: 'مثالي لمدارس الرياضة المائية، العقارات المؤجرة، منظمي الرحلات، وأعمال الضيافة. أنشئ مواقع رائعة مع أنظمة حجز متكاملة.',
-      trustedBy: 'موثوق به من قبل أكثر من 1000 مقدم خدمة',
       
       // Features
-      noSetupFees: 'بدون رسوم إعداد',
-      freeTrial: 'تجربة مجانية لمدة 14 يوم',
-      cancelAnytime: 'إلغاء في أي وقت',
+      features: {
+        title: 'منصتنا',
+        subtitle: 'كل ما تحتاجه للنجاح',
+        description: 'مصمم خصيصاً للأعمال الخدمية مع جميع الأدوات التي تحتاجها',
+        quickSetup: {
+          title: 'إعداد سريع',
+          description: 'أطلق موقعك المهني في دقائق بقوالبنا سهلة الاستخدام.'
+        },
+        multilingual: {
+          title: 'دعم متعدد اللغات',
+          description: 'اوصل لجمهور عالمي مع ميزات الترجمة والتوطين المدمجة.'
+        },
+        secure: {
+          title: 'آمن وموثوق',
+          description: 'أمان على مستوى المؤسسات مع ضمان توفر 99.9% لعملك.'
+        },
+        support: {
+          title: 'دعم 24/7',
+          description: 'احصل على المساعدة متى احتجتها مع فريق دعم العملاء المخصص لدينا.'
+        }
+      },
       
       // Benefits
-      featuresTitle: 'كل ما تحتاجه للنجاح',
-      featuresSubtitle: 'مصمم خصيصاً للأعمال الخدمية مع جميع الأدوات التي تحتاجها',
+      benefits: {
+        noSetupFees: 'بدون رسوم إعداد',
+        freeTrial: 'تجربة مجانية لمدة 14 يوم',
+        cancelAnytime: 'إلغاء في أي وقت'
+      },
       
       // How it works
-      howItWorksTitle: 'كيف يعمل',
-      howItWorksSubtitle: 'ابدأ في ثلاث خطوات بسيطة فقط',
-      step1Title: 'سجل',
-      step1Description: 'أنشئ حسابك واختر خطتك',
-      step2Title: 'خصص',
-      step2Description: 'أعد علامتك التجارية وكون خدماتك',
-      step3Title: 'أطلق',
-      step3Description: 'انطلق وابدأ قبول الحجوزات',
+      howItWorks: {
+        title: 'كيف يعمل',
+        subtitle: 'ابدأ في ثلاث خطوات بسيطة فقط',
+        step1: {
+          title: 'سجل',
+          description: 'أنشئ حسابك واختر خطتك'
+        },
+        step2: {
+          title: 'خصص',
+          description: 'أعد علامتك التجارية وكون خدماتك'
+        },
+        step3: {
+          title: 'أطلق',
+          description: 'انطلق وابدأ قبول الحجوزات'
+        }
+      },
       
       // Testimonials
-      testimonialsTitle: 'محبوب من قبل مقدمي الخدمات عالمياً',
-      testimonialsSubtitle: 'شاهد ما يقوله عملاؤنا عن تجربتهم',
+      testimonials: {
+        title: 'ماذا يقول عملاؤنا',
+        subtitle: 'محبوب من قبل مقدمي الخدمات عالمياً'
+      },
       
       // CTA
-      ctaTitle: 'مستعد لتحويل أعمالك؟',
-      ctaSubtitle: 'انضم إلى آلاف مقدمي الخدمات الذين نموا أعمالهم مع منصتنا',
+      cta: {
+        title: 'مستعد لتحويل أعمالك؟',
+        subtitle: 'انضم إلى آلاف مقدمي الخدمات الذين نموا أعمالهم مع منصتنا'
+      }
     }
   }
 };

@@ -1,290 +1,276 @@
-
 import { useState } from 'react';
-import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Switch } from '@/components/ui/switch';
-import { CheckCircle, Star, Users, Zap, Crown } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { ArrowRight, Clock, Users, Star, MapPin, Camera, Utensils, Waves, Mountain, Crown } from 'lucide-react';
 
 const Packages = () => {
-  const [isYearly, setIsYearly] = useState(false);
+  const { t } = useTranslation(['packages', 'common']);
 
   const packages = [
     {
-      name: 'Starter',
-      icon: Users,
-      description: 'Perfect for small businesses getting started',
-      monthlyPrice: 29,
-      yearlyPrice: 290,
-      popular: false,
-      features: [
-        'Up to 50 listings',
-        'Basic booking system',
-        'Email support',
-        'Mobile responsive design',
-        '2 languages supported',
-        'Basic analytics',
-        'SSL certificate',
-        '99.5% uptime guarantee',
+      id: 'marrakech-cultural',
+      title: '5-Day Marrakech Cultural Discovery',
+      description: 'Immerse yourself in the rich culture and history of Marrakech with guided medina walks, traditional hammam, and authentic cooking classes.',
+      duration: '5 Days / 4 Nights',
+      groupSize: '2-8 People',
+      price: '$599',
+      rating: 4.9,
+      reviews: 127,
+      image: '/placeholder.svg?height=300&width=400&text=Marrakech+Medina',
+      category: 'Cultural',
+      highlights: [
+        'Guided medina and souks exploration',
+        'Traditional Moroccan cooking class',
+        'Relaxing hammam spa experience',
+        'Visit to Bahia Palace and Saadian Tombs',
+        'Sunset at Jemaa el-Fnaa square'
       ],
-      limitations: [
-        'Limited customization',
-        'Basic templates only',
-        'Email support only',
+      includes: [
+        'Accommodation in traditional riad',
+        'All meals and cooking class',
+        'Professional local guide',
+        'Transportation within Marrakech',
+        'Hammam spa session'
       ],
-    },
-    {
-      name: 'Professional',
-      icon: Star,
-      description: 'Most popular choice for growing businesses',
-      monthlyPrice: 79,
-      yearlyPrice: 790,
-      popular: true,
-      features: [
-        'Up to 500 listings',
-        'Advanced booking system',
-        'Priority email & chat support',
-        'Custom branding',
-        '5 languages supported',
-        'Advanced analytics & reports',
-        'Payment processing',
-        'SEO optimization',
-        'Social media integration',
-        'Custom domain',
-        '99.9% uptime guarantee',
-      ],
-      limitations: [],
-    },
-    {
-      name: 'Enterprise',
       icon: Crown,
-      description: 'For large businesses with custom needs',
-      monthlyPrice: 199,
-      yearlyPrice: 1990,
-      popular: false,
-      features: [
-        'Unlimited listings',
-        'White-label solution',
-        'Dedicated account manager',
-        'Custom integrations',
-        'Unlimited languages',
-        'Advanced API access',
-        'Custom reporting',
-        'Priority phone support',
-        'Multi-location management',
-        'Advanced user permissions',
-        '99.99% uptime guarantee',
-        'Custom development',
+      color: 'from-amber-500 to-orange-500',
+      bgColor: 'bg-amber-50'
+    },
+    {
+      id: 'taghazout-surf-yoga',
+      title: 'Surf & Yoga Retreat in Taghazout',
+      description: 'Perfect blend of surfing and wellness in Morocco\'s premier surf destination. Daily surf lessons with experienced instructors and rejuvenating yoga sessions.',
+      duration: '7 Days / 6 Nights',
+      groupSize: '4-12 People',
+      price: '$799',
+      rating: 4.8,
+      reviews: 89,
+      image: '/placeholder.svg?height=300&width=400&text=Taghazout+Surf',
+      category: 'Adventure',
+      highlights: [
+        'Daily surf lessons for all levels',
+        'Morning yoga sessions on the beach',
+        'Surfboard and wetsuit included',
+        'Beachfront accommodation',
+        'Healthy organic meals'
       ],
-      limitations: [],
+      includes: [
+        'Surf lessons and equipment',
+        'Daily yoga classes',
+        'Beachfront accommodation',
+        'All meals with healthy options',
+        'Airport transfers'
+      ],
+      icon: Waves,
+      color: 'from-blue-500 to-cyan-500',
+      bgColor: 'bg-blue-50'
     },
+    {
+      id: 'rural-artisan-discovery',
+      title: 'Rural Stay & Artisan Discovery',
+      description: 'Experience authentic Moroccan rural life with homestay accommodation and visits to traditional artisan workshops in the Atlas Mountains.',
+      duration: '4 Days / 3 Nights',
+      groupSize: '2-6 People',
+      price: '$449',
+      rating: 4.7,
+      reviews: 64,
+      image: '/placeholder.svg?height=300&width=400&text=Atlas+Mountains',
+      category: 'Cultural',
+      highlights: [
+        'Authentic homestay experience',
+        'Pottery and weaving workshops',
+        'Traditional Berber meals',
+        'Guided mountain hikes',
+        'Local market visits'
+      ],
+      includes: [
+        'Homestay accommodation',
+        'All meals with local families',
+        'Artisan workshop experiences',
+        'Transportation from Marrakech',
+        'Professional guide'
+      ],
+      icon: Mountain,
+      color: 'from-green-500 to-emerald-500',
+      bgColor: 'bg-green-50'
+    },
+    {
+      id: 'desert-photography-expedition',
+      title: 'Sahara Desert Photography Expedition',
+      description: 'Capture the magic of the Sahara Desert with professional photography guidance. Perfect for photographers of all levels.',
+      duration: '6 Days / 5 Nights',
+      groupSize: '3-8 People',
+      price: '$899',
+      rating: 4.9,
+      reviews: 43,
+      image: '/placeholder.svg?height=300&width=400&text=Sahara+Desert',
+      category: 'Photography',
+      highlights: [
+        'Professional photography mentoring',
+        'Camel trekking at golden hour',
+        'Luxury desert camp experience',
+        'Star photography sessions',
+        'Local nomad encounters'
+      ],
+      includes: [
+        'Photography workshop and guidance',
+        'Luxury desert accommodation',
+        'Camel trekking experience',
+        'All meals including desert BBQ',
+        '4WD transportation'
+      ],
+      icon: Camera,
+      color: 'from-orange-500 to-red-500',
+      bgColor: 'bg-orange-50'
+    }
   ];
 
-  const faqs = [
-    {
-      question: 'Can I change plans anytime?',
-      answer: 'Yes, you can upgrade or downgrade your plan at any time. Changes take effect immediately.',
-    },
-    {
-      question: 'What happens if I exceed my listing limit?',
-      answer: 'We\'ll notify you before you reach your limit. You can upgrade your plan or we\'ll help you optimize your listings.',
-    },
-    {
-      question: 'Do you offer refunds?',
-      answer: 'We offer a 30-day money-back guarantee on all plans. No questions asked.',
-    },
-    {
-      question: 'Is there a setup fee?',
-      answer: 'No setup fees! We believe in transparent pricing with no hidden costs.',
-    },
-  ];
+  const categories = ['All', 'Cultural', 'Adventure', 'Photography'];
+  const [selectedCategory, setSelectedCategory] = useState('All');
 
-  const getPrice = (pkg: typeof packages[0]) => {
-    return isYearly ? pkg.yearlyPrice : pkg.monthlyPrice;
-  };
-
-  const getSavings = (pkg: typeof packages[0]) => {
-    const monthlyTotal = pkg.monthlyPrice * 12;
-    const savings = monthlyTotal - pkg.yearlyPrice;
-    return Math.round((savings / monthlyTotal) * 100);
-  };
+  const filteredPackages = selectedCategory === 'All' 
+    ? packages 
+    : packages.filter(pkg => pkg.category === selectedCategory);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-gradient-to-br from-background to-muted/30">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-background via-background to-muted/30 py-20 lg:py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
-            className="text-center space-y-8"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <Badge variant="secondary">Pricing Plans</Badge>
-            <h1 className="text-4xl sm:text-6xl font-bold tracking-tight">
-              Simple, Transparent
-              <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
-                {' '}Pricing
-              </span>
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Choose the perfect plan for your business. Start free, upgrade anytime.
-            </p>
-
-            {/* Billing Toggle */}
-            <div className="flex items-center justify-center space-x-4">
-              <span className={`text-sm ${!isYearly ? 'text-foreground font-medium' : 'text-muted-foreground'}`}>
-                Monthly
-              </span>
-              <Switch
-                checked={isYearly}
-                onCheckedChange={setIsYearly}
-              />
-              <span className={`text-sm ${isYearly ? 'text-foreground font-medium' : 'text-muted-foreground'}`}>
-                Yearly
-              </span>
-              {isYearly && (
-                <Badge variant="secondary" className="ml-2">
-                  Save up to 25%
-                </Badge>
-              )}
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Pricing Cards */}
-      <section className="py-20 -mt-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {packages.map((pkg, index) => (
-              <motion.div
-                key={pkg.name}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className={pkg.popular ? 'md:-mt-4' : ''}
+      <section className="relative overflow-hidden pt-20 pb-16 lg:pt-32 lg:pb-24">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+        >
+          <Badge variant="secondary" className="mb-6">
+            Curated Experiences
+          </Badge>
+          <h1 className="text-4xl sm:text-6xl font-bold tracking-tight mb-6">
+            Unforgettable
+            <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
+              {' '}Packages
+            </span>
+          </h1>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+            Discover carefully crafted travel packages that showcase the best of Morocco. 
+            From cultural immersions to adventure activities, each experience is designed to create lasting memories.
+          </p>
+          
+          {/* Category Filter */}
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            {categories.map((category) => (
+              <Button
+                key={category}
+                variant={selectedCategory === category ? "default" : "outline"}
+                onClick={() => setSelectedCategory(category)}
+                className="transition-all duration-300"
               >
-                <Card className={`relative h-full ${pkg.popular ? 'border-primary shadow-xl scale-105' : 'hover:shadow-lg'} transition-all duration-300`}>
-                  {pkg.popular && (
-                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                      <Badge className="px-4 py-1">Most Popular</Badge>
-                    </div>
-                  )}
-                  
-                  <CardHeader className="text-center space-y-4 pb-8">
-                    <div className={`w-12 h-12 rounded-lg flex items-center justify-center mx-auto ${
-                      pkg.popular ? 'bg-primary' : 'bg-primary/10'
-                    }`}>
-                      <pkg.icon className={`w-6 h-6 ${pkg.popular ? 'text-primary-foreground' : 'text-primary'}`} />
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <CardTitle className="text-2xl">{pkg.name}</CardTitle>
-                      <p className="text-muted-foreground text-sm">{pkg.description}</p>
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <div className="flex items-baseline justify-center space-x-2">
-                        <span className="text-4xl font-bold">${getPrice(pkg)}</span>
-                        <span className="text-muted-foreground">/{isYearly ? 'year' : 'month'}</span>
-                      </div>
-                      {isYearly && (
-                        <p className="text-sm text-green-600">
-                          Save {getSavings(pkg)}% compared to monthly
-                        </p>
-                      )}
-                    </div>
-                  </CardHeader>
-                  
-                  <CardContent className="space-y-6">
-                    <Button 
-                      className={`w-full ${pkg.popular ? '' : 'variant-outline'}`}
-                      size="lg"
-                    >
-                      {pkg.name === 'Enterprise' ? 'Contact Sales' : 'Start Free Trial'}
-                    </Button>
-                    
-                    <div className="space-y-3">
-                      <p className="font-medium text-sm">Everything in {pkg.name}:</p>
-                      <ul className="space-y-2 text-sm">
-                        {pkg.features.map((feature, idx) => (
-                          <li key={idx} className="flex items-start space-x-2">
-                            <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                            <span className="text-muted-foreground">{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
+                {category}
+              </Button>
             ))}
           </div>
-        </div>
+        </motion.div>
       </section>
 
-      {/* Feature Comparison */}
-      <section className="py-20 bg-muted/30">
+      {/* Packages Grid */}
+      <section className="pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center space-y-4 mb-16">
-            <Badge variant="outline">Compare Plans</Badge>
-            <h2 className="text-3xl sm:text-4xl font-bold">Choose What's Right for You</h2>
-          </div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead>
-                <tr className="border-b">
-                  <th className="text-left py-4 px-6">Features</th>
-                  <th className="text-center py-4 px-6">Starter</th>
-                  <th className="text-center py-4 px-6">Professional</th>
-                  <th className="text-center py-4 px-6">Enterprise</th>
-                </tr>
-              </thead>
-              <tbody>
-                {[
-                  ['Listings', '50', '500', 'Unlimited'],
-                  ['Languages', '2', '5', 'Unlimited'],
-                  ['Support', 'Email', 'Email & Chat', 'Phone & Dedicated Manager'],
-                  ['Custom Branding', '❌', '✅', '✅'],
-                  ['API Access', '❌', 'Limited', 'Full'],
-                  ['Custom Integrations', '❌', '❌', '✅'],
-                ].map(([feature, starter, pro, enterprise], index) => (
-                  <tr key={index} className="border-b border-muted">
-                    <td className="py-4 px-6 font-medium">{feature}</td>
-                    <td className="py-4 px-6 text-center">{starter}</td>
-                    <td className="py-4 px-6 text-center">{pro}</td>
-                    <td className="py-4 px-6 text-center">{enterprise}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center space-y-4 mb-16">
-            <Badge variant="outline">FAQ</Badge>
-            <h2 className="text-3xl sm:text-4xl font-bold">Frequently Asked Questions</h2>
-          </div>
-
-          <div className="space-y-8">
-            {faqs.map((faq, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {filteredPackages.map((pkg, index) => (
               <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                key={pkg.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
+                viewport={{ once: true }}
               >
-                <Card>
-                  <CardContent className="p-6">
-                    <h3 className="text-lg font-semibold mb-2">{faq.question}</h3>
-                    <p className="text-muted-foreground">{faq.answer}</p>
+                <Card className={`group hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] overflow-hidden ${pkg.bgColor} border-0`}>
+                  {/* Image Section */}
+                  <div className="relative overflow-hidden">
+                    <div className="aspect-video bg-gradient-to-br from-muted to-muted-foreground/20 flex items-center justify-center relative">
+                      <pkg.icon className="w-16 h-16 text-muted-foreground/60" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                    </div>
+                    <Badge 
+                      className={`absolute top-4 left-4 bg-gradient-to-r ${pkg.color} text-white border-0`}
+                    >
+                      {pkg.category}
+                    </Badge>
+                    <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-1">
+                      <Star className="w-4 h-4 text-yellow-500 fill-current" />
+                      <span className="text-sm font-medium">{pkg.rating}</span>
+                      <span className="text-xs text-muted-foreground">({pkg.reviews})</span>
+                    </div>
+                  </div>
+
+                  <CardContent className="p-8">
+                    <div className="space-y-6">
+                      {/* Header */}
+                      <div>
+                        <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
+                          {pkg.title}
+                        </h3>
+                        <p className="text-muted-foreground leading-relaxed">
+                          {pkg.description}
+                        </p>
+                      </div>
+
+                      {/* Package Info */}
+                      <div className="flex flex-wrap gap-4 py-4 border-y border-border/50">
+                        <div className="flex items-center gap-2 text-sm">
+                          <Clock className="w-4 h-4 text-primary" />
+                          <span>{pkg.duration}</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-sm">
+                          <Users className="w-4 h-4 text-primary" />
+                          <span>{pkg.groupSize}</span>
+                        </div>
+                      </div>
+
+                      {/* Highlights */}
+                      <div>
+                        <h4 className="font-semibold mb-3">Experience Highlights:</h4>
+                        <ul className="space-y-2">
+                          {pkg.highlights.map((highlight, idx) => (
+                            <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
+                              <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                              <span>{highlight}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      {/* Includes */}
+                      <div>
+                        <h4 className="font-semibold mb-3">Package Includes:</h4>
+                        <ul className="space-y-2">
+                          {pkg.includes.map((item, idx) => (
+                            <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
+                              <div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      {/* Price and CTA */}
+                      <div className="flex items-center justify-between pt-4">
+                        <div>
+                          <div className="text-3xl font-bold text-primary">{pkg.price}</div>
+                          <div className="text-sm text-muted-foreground">per person</div>
+                        </div>
+                        <Button 
+                          size="lg"
+                          className={`bg-gradient-to-r ${pkg.color} text-white border-0 hover:scale-105 transition-all duration-300`}
+                        >
+                          Book Now
+                          <ArrowRight className="ml-2 w-5 h-5" />
+                        </Button>
+                      </div>
+                    </div>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -294,16 +280,25 @@ const Packages = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-primary/10 to-primary/5">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
-          <h2 className="text-3xl sm:text-4xl font-bold">Ready to Get Started?</h2>
-          <p className="text-xl text-muted-foreground">
-            Join thousands of businesses already using our platform to grow their online presence
+      <section className="py-24 bg-gradient-to-r from-primary to-primary/80">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8"
+        >
+          <h2 className="text-3xl sm:text-5xl font-bold text-white">
+            Can't Find What You're Looking For?
+          </h2>
+          <p className="text-xl text-primary-foreground/80">
+            We specialize in creating custom packages tailored to your unique interests and requirements.
           </p>
-          <Button size="lg" className="text-lg px-8">
-            Start Your Free Trial
+          <Button size="lg" variant="secondary" className="text-lg px-8 py-6">
+            Create Custom Package
+            <ArrowRight className="ml-2 w-5 h-5" />
           </Button>
-        </div>
+        </motion.div>
       </section>
     </div>
   );
