@@ -1,20 +1,24 @@
 
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Facebook, Twitter, Instagram, Linkedin, Mail, Globe } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Linkedin, Mail } from 'lucide-react';
+import { LanguageSwitcher } from './LanguageSwitcher';
 
 export const Footer = () => {
+  const { t } = useTranslation('common');
+
   const footerLinks = {
     product: [
-      { name: 'Features', href: '/services' },
-      { name: 'Pricing', href: '/packages' },
-      { name: 'Listings', href: '/listings' },
-      { name: 'Blog', href: '/blog' },
+      { name: t('services'), href: '/services' },
+      { name: t('packages'), href: '/packages' },
+      { name: t('listings'), href: '/listings' },
+      { name: t('blog'), href: '/blog' },
     ],
     company: [
-      { name: 'About', href: '/about' },
-      { name: 'Contact', href: '/contact' },
+      { name: t('about'), href: '/about' },
+      { name: t('contact'), href: '/contact' },
       { name: 'Privacy Policy', href: '/privacy' },
       { name: 'Terms of Service', href: '/terms' },
     ],
@@ -43,24 +47,23 @@ export const Footer = () => {
               <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
                 <span className="text-primary-foreground font-bold text-sm">S</span>
               </div>
-              <span className="font-bold text-xl text-foreground">SaaSify</span>
+              <span className="font-bold text-xl text-foreground">{t('companyName')}</span>
             </Link>
             
             <p className="text-muted-foreground max-w-md">
-              Empower your service business with our comprehensive platform. 
-              From listings to bookings, we've got everything you need to grow.
+              {t('companyTagline')}
             </p>
 
             <div className="space-y-3">
-              <h4 className="font-semibold text-foreground">Stay Updated</h4>
+              <h4 className="font-semibold text-foreground">{t('stayUpdated')}</h4>
               <div className="flex space-x-2">
                 <Input 
-                  placeholder="Enter your email"
+                  placeholder={t('enterEmail')}
                   className="max-w-sm"
                 />
                 <Button>
                   <Mail className="w-4 h-4 mr-2" />
-                  Subscribe
+                  {t('subscribe')}
                 </Button>
               </div>
             </div>
@@ -131,14 +134,11 @@ export const Footer = () => {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
           <p className="text-muted-foreground text-sm">
-            © 2024 SaaSify. All rights reserved.
+            © 2024 {t('companyName')}. {t('allRightsReserved')}.
           </p>
           
           <div className="flex items-center space-x-4">
-            <button className="flex items-center space-x-1 text-sm text-muted-foreground hover:text-foreground">
-              <Globe className="w-4 h-4" />
-              <span>English</span>
-            </button>
+            <LanguageSwitcher />
           </div>
         </div>
       </div>

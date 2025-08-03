@@ -1,31 +1,27 @@
 
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Globe, User } from 'lucide-react';
+import { Menu, X, User } from 'lucide-react';
 import { AuthModal } from '@/components/auth/AuthModal';
+import { LanguageSwitcher } from './LanguageSwitcher';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showAuth, setShowAuth] = useState(false);
   const [authMode, setAuthMode] = useState<'login' | 'signup'>('login');
-  const [currentLang, setCurrentLang] = useState('en');
   const location = useLocation();
+  const { t } = useTranslation('common');
 
   const navItems = [
-    { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
-    { name: 'Services', href: '/services' },
-    { name: 'Listings', href: '/listings' },
-    { name: 'Packages', href: '/packages' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'Contact', href: '/contact' },
-  ];
-
-  const languages = [
-    { code: 'en', name: 'English' },
-    { code: 'fr', name: 'Français' },
-    { code: 'ar', name: 'العربية' },
+    { name: t('home'), href: '/' },
+    { name: t('about'), href: '/about' },
+    { name: t('services'), href: '/services' },
+    { name: t('listings'), href: '/listings' },
+    { name: t('packages'), href: '/packages' },
+    { name: t('blog'), href: '/blog' },
+    { name: t('contact'), href: '/contact' },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -45,7 +41,7 @@ export const Navbar = () => {
               <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
                 <span className="text-primary-foreground font-bold text-sm">S</span>
               </div>
-              <span className="font-bold text-xl text-foreground">SaaSify</span>
+              <span className="font-bold text-xl text-foreground">{t('companyName')}</span>
             </Link>
 
             {/* Desktop Navigation */}
@@ -65,35 +61,18 @@ export const Navbar = () => {
 
             {/* Desktop Actions */}
             <div className="hidden md:flex items-center space-x-4">
-              {/* Language Switcher */}
-              <div className="relative group">
-                <button className="flex items-center space-x-1 text-sm text-muted-foreground hover:text-foreground">
-                  <Globe className="w-4 h-4" />
-                  <span>{languages.find(l => l.code === currentLang)?.name}</span>
-                </button>
-                <div className="absolute right-0 top-full mt-2 w-32 bg-popover border border-border rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
-                  {languages.map((lang) => (
-                    <button
-                      key={lang.code}
-                      onClick={() => setCurrentLang(lang.code)}
-                      className="block w-full text-left px-3 py-2 text-sm text-popover-foreground hover:bg-accent"
-                    >
-                      {lang.name}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
+              <LanguageSwitcher />
+              
               <Button
                 variant="ghost"
                 onClick={() => handleAuthClick('login')}
                 className="text-sm"
               >
                 <User className="w-4 h-4 mr-2" />
-                Sign In
+                {t('signin')}
               </Button>
               <Button onClick={() => handleAuthClick('signup')} className="text-sm">
-                Start Free Trial
+                {t('signup')}
               </Button>
             </div>
 
@@ -130,6 +109,7 @@ export const Navbar = () => {
               ))}
               <div className="pt-4 pb-3 border-t border-border">
                 <div className="px-3 space-y-2">
+                  <LanguageSwitcher />
                   <Button
                     variant="ghost"
                     onClick={() => {
@@ -139,7 +119,7 @@ export const Navbar = () => {
                     className="w-full justify-start"
                   >
                     <User className="w-4 h-4 mr-2" />
-                    Sign In
+                    {t('signin')}
                   </Button>
                   <Button
                     onClick={() => {
@@ -148,7 +128,7 @@ export const Navbar = () => {
                     }}
                     className="w-full"
                   >
-                    Start Free Trial
+                    {t('signup')}
                   </Button>
                 </div>
               </div>
