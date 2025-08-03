@@ -56,7 +56,7 @@ Whether you're here to surf, relax, or explore the rich culture of Morocco, this
       joinDate: 'June 2020',
       description: 'Local surf instructor and property manager with years of hospitality experience.',
     },
-    reviews: [
+    userReviews: [
       {
         name: 'Sarah Johnson',
         rating: 5,
@@ -212,7 +212,7 @@ Whether you're here to surf, relax, or explore the rich culture of Morocco, this
             <div className="space-y-6">
               <h2 className="text-2xl font-semibold">Reviews</h2>
               <div className="space-y-6">
-                {listing.reviews.map((review, index) => (
+                {listing.userReviews.map((review, index) => (
                   <div key={index} className="space-y-3">
                     <div className="flex items-start justify-between">
                       <div className="flex items-center space-x-3">
