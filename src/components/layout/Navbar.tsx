@@ -3,8 +3,9 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
-import { Menu, X, User } from 'lucide-react';
+import { Menu, X, User, Waves } from 'lucide-react';
 import { AuthModal } from '@/components/auth/AuthModal';
+import { HomeSelector } from '@/components/ui/home-selector';
 import { LanguageSwitcher } from './LanguageSwitcher';
 
 export const Navbar = () => {
@@ -15,7 +16,6 @@ export const Navbar = () => {
   const { t } = useTranslation('common');
 
   const navItems = [
-    { name: t('home'), href: '/' },
     { name: t('about'), href: '/about' },
     { name: t('services'), href: '/services' },
     { name: t('listings'), href: '/listings' },
@@ -37,15 +37,16 @@ export const Navbar = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
-            <Link to="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-sm">S</span>
+            <Link to="/" className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-lg">
+                <Waves className="w-6 h-6 text-primary-foreground" />
               </div>
-              <span className="font-bold text-xl text-foreground">{t('companyName')}</span>
+              <span className="font-bold text-xl text-foreground">TaghazoutTimes</span>
             </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
+              <HomeSelector />
               {navItems.map((item) => (
                 <Link
                   key={item.name}
@@ -61,8 +62,6 @@ export const Navbar = () => {
 
             {/* Desktop Actions */}
             <div className="hidden md:flex items-center space-x-4">
-              <LanguageSwitcher />
-              
               <Button
                 variant="ghost"
                 onClick={() => handleAuthClick('login')}
@@ -93,6 +92,9 @@ export const Navbar = () => {
         {isOpen && (
           <div className="md:hidden border-t border-border bg-background">
             <div className="px-2 pt-2 pb-3 space-y-1">
+              <div className="px-3 py-2">
+                <HomeSelector />
+              </div>
               {navItems.map((item) => (
                 <Link
                   key={item.name}
@@ -109,7 +111,6 @@ export const Navbar = () => {
               ))}
               <div className="pt-4 pb-3 border-t border-border">
                 <div className="px-3 space-y-2">
-                  <LanguageSwitcher />
                   <Button
                     variant="ghost"
                     onClick={() => {
@@ -136,6 +137,15 @@ export const Navbar = () => {
           </div>
         )}
       </nav>
+      
+      {/* Language Switcher Below Navbar */}
+      <div className="bg-muted/30 border-b border-border py-2">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-end">
+            <LanguageSwitcher />
+          </div>
+        </div>
+      </div>
 
       <AuthModal
         isOpen={showAuth}

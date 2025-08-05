@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Navbar } from "./components/layout/Navbar";
 import { Footer } from "./components/layout/Footer";
+import { ScrollToTop } from "./components/ui/scroll-to-top";
 import Index from "./pages/Index";
 import HomeV1 from "./pages/HomeV1";
 import HomeV2 from "./pages/HomeV2";
@@ -22,6 +23,12 @@ import BlogPost from "./pages/BlogPost";
 import Contact from "./pages/Contact";
 import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
+import Help from "./pages/Help";
+import Docs from "./pages/Docs";
+import Community from "./pages/Community";
+import Api from "./pages/Api";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +38,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <div className="min-h-screen flex flex-col">
           <Navbar />
           <main className="flex-1">
@@ -50,6 +58,12 @@ const App = () => (
               <Route path="/blog/:slug" element={<BlogPost />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/terms" element={<Terms />} />
+              <Route path="/help" element={<Help />} />
+              <Route path="/docs" element={<Docs />} />
+              <Route path="/community" element={<Community />} />
+              <Route path="/api" element={<Api />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
