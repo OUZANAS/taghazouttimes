@@ -1,10 +1,9 @@
-
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, Clock, Waves } from 'lucide-react';
-import { motion } from 'framer-motion';
 
 export const Footer = () => {
   const { t } = useTranslation('common');
@@ -32,7 +31,7 @@ export const Footer = () => {
 
   const contactInfo = [
     { icon: Phone, label: "Phone", value: "+212 528 123 456" },
-    { icon: Mail, label: "Email", value: "hello@taghazout times.com" },
+    { icon: Mail, label: "Email", value: "hello@taghazouttimes.com" },
     { icon: MapPin, label: "Address", value: "Taghazout, Agadir, Morocco" },
     { icon: Clock, label: "Hours", value: "24/7 Customer Support" },
   ];
@@ -48,9 +47,7 @@ export const Footer = () => {
     <footer className="relative bg-gradient-to-br from-muted/30 to-muted/60 border-t border-border overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: "url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><defs><pattern id=\"waves\" width=\"40\" height=\"40\" patternUnits=\"userSpaceOnUse\"><path d=\"M0 20c10-10 30-10 40 0v20H0z\" fill=\"%23000\" opacity=\"0.1\"/></pattern></defs><rect width=\"100\" height=\"100\" fill=\"url(%23waves)\"/></svg>')"
-        }} />
+        <div className="absolute inset-0 bg-grid-pattern" />
       </div>
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -67,11 +64,11 @@ export const Footer = () => {
                 <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center shadow-lg">
                   <Waves className="w-7 h-7 text-primary-foreground" />
                 </div>
-                <span className="font-bold text-2xl text-foreground">TaghazoutTimes</span>
+                <span className="font-bold text-2xl text-foreground">{t('companyName')}</span>
               </Link>
               
               <p className="text-muted-foreground mb-6 text-lg leading-relaxed">
-                Your gateway to authentic Moroccan surf culture and unforgettable travel experiences in Taghazout.
+                {t('companyTagline')}
               </p>
 
               <div className="space-y-4">
@@ -108,7 +105,7 @@ export const Footer = () => {
             >
               <h4 className="font-bold text-foreground text-lg mb-3">{t('stayUpdated')}</h4>
               <p className="text-muted-foreground text-sm mb-4">
-                Get exclusive deals, travel tips, and surf reports delivered to your inbox.
+                Get exclusive deals, travel tips, and cultural insights delivered to your inbox.
               </p>
               <div className="space-y-3">
                 <Input 
@@ -128,7 +125,7 @@ export const Footer = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true }}
             >
-              <h4 className="font-semibold text-foreground mb-4">Follow Us</h4>
+              <h4 className="font-semibold text-foreground mb-4">Follow Our Journey</h4>
               <div className="flex items-center space-x-3">
                 {socialLinks.map((social, index) => (
                   <motion.div
@@ -156,7 +153,7 @@ export const Footer = () => {
             viewport={{ once: true }}
             className="space-y-6"
           >
-            <h4 className="font-bold text-foreground">Product</h4>
+            <h4 className="font-bold text-foreground">Explore</h4>
             <ul className="space-y-3">
               {footerLinks.product.map((link, index) => (
                 <motion.li
@@ -218,7 +215,7 @@ export const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex items-center space-x-6">
               <p className="text-muted-foreground text-sm">
-                © 2024 TaghazoutTimes. All rights reserved.
+                © 2024 {t('companyName')}. {t('allRightsReserved')}.
               </p>
               <div className="hidden md:flex items-center space-x-4 text-xs text-muted-foreground">
                 <span>Made with ❤️ in Morocco</span>

@@ -1,4 +1,3 @@
-
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
@@ -14,8 +13,10 @@ const resources = {
       packages: 'Packages',
       blog: 'Blog',
       contact: 'Contact',
+      dashboard: 'Dashboard',
       signin: 'Sign In',
-      signup: 'Start Free Trial',
+      signup: 'Sign Up',
+      logout: 'Logout',
       
       // Common actions
       learnMore: 'Learn More',
@@ -24,6 +25,33 @@ const resources = {
       startFreeTrial: 'Start Free Trial',
       contactSales: 'Contact Sales',
       readMore: 'Read More',
+      bookNow: 'Book Now',
+      viewDetails: 'View Details',
+      search: 'Search',
+      filter: 'Filter',
+      sort: 'Sort',
+      save: 'Save',
+      cancel: 'Cancel',
+      edit: 'Edit',
+      delete: 'Delete',
+      
+      // Form fields
+      name: 'Name',
+      email: 'Email',
+      phone: 'Phone',
+      message: 'Message',
+      subject: 'Subject',
+      password: 'Password',
+      confirmPassword: 'Confirm Password',
+      
+      // Status
+      loading: 'Loading...',
+      error: 'Error',
+      success: 'Success',
+      pending: 'Pending',
+      confirmed: 'Confirmed',
+      cancelled: 'Cancelled',
+      completed: 'Completed',
       
       // Footer
       stayUpdated: 'Stay Updated',
@@ -32,75 +60,130 @@ const resources = {
       allRightsReserved: 'All rights reserved',
       
       // Company info
-      companyName: 'SaaSify',
-      companyTagline: 'Empower your service business with our comprehensive platform. From listings to bookings, we\'ve got everything you need to grow.',
-      trustedBy: 'Trusted by 1000+ Service Providers'
+      companyName: 'TaghazoutTimes',
+      companyTagline: 'Your gateway to authentic Moroccan experiences and unforgettable adventures.',
+      trustedBy: 'Trusted by 1000+ travelers worldwide'
     },
     home: {
       // Hero section
-      heroTitle: 'Build Your Service Business Website in',
-      heroTitleHighlight: 'Minutes',
-      heroSubtitle: 'Perfect for surf schools, rental properties, tour operators, and hospitality businesses. Create stunning websites with integrated booking systems.',
+      heroTitle: 'Discover Authentic Morocco',
+      heroTitleHighlight: 'Your Way',
+      heroSubtitle: 'From surf lessons in Taghazout to luxury riads in Marrakech. Experience Morocco through the eyes of locals with our curated selection of accommodations, activities, and adventures.',
       
       // Features
       features: {
-        title: 'Our Platform',
-        subtitle: 'Everything You Need to Succeed',
-        description: 'Built specifically for service-based businesses with all the tools you need',
-        quickSetup: {
-          title: 'Quick Setup',
-          description: 'Launch your professional website in minutes with our easy-to-use templates.'
+        title: 'Why Choose Us',
+        subtitle: 'Everything You Need for the Perfect Trip',
+        description: 'Carefully curated experiences that showcase the best of Moroccan culture and hospitality',
+        authentic: {
+          title: 'Authentic Experiences',
+          description: 'Connect with local culture through genuine, locally-guided experiences.'
         },
-        multilingual: {
-          title: 'Multilingual Support',
-          description: 'Reach global audiences with built-in translation and localization features.'
-        },
-        secure: {
-          title: 'Secure & Reliable',
-          description: 'Enterprise-grade security with 99.9% uptime guarantee for your business.'
+        verified: {
+          title: 'Verified Providers',
+          description: 'All our partners are carefully vetted for quality and authenticity.'
         },
         support: {
           title: '24/7 Support',
-          description: 'Get help whenever you need it with our dedicated customer support team.'
+          description: 'Get help in your language whenever you need it during your journey.'
+        },
+        multilingual: {
+          title: 'Multilingual Service',
+          description: 'Full support in English, French, and Arabic for seamless communication.'
         }
       },
       
-      // Benefits
-      benefits: {
-        noSetupFees: 'No setup fees',
-        freeTrial: '14-day free trial',
-        cancelAnytime: 'Cancel anytime'
+      // Stats
+      stats: {
+        destinations: 'Destinations',
+        happyTravelers: 'Happy Travelers',
+        averageRating: 'Average Rating',
+        successRate: 'Success Rate'
       },
       
       // How it works
       howItWorks: {
         title: 'How It Works',
-        subtitle: 'Get started in just three simple steps',
+        subtitle: 'Plan your perfect Moroccan adventure in three simple steps',
         step1: {
-          title: 'Sign Up',
-          description: 'Create your account and choose your plan'
+          title: 'Explore',
+          description: 'Browse our curated selection of accommodations, activities, and experiences'
         },
         step2: {
-          title: 'Customize',
-          description: 'Set up your brand and configure your services'
+          title: 'Book',
+          description: 'Secure your spot with our easy booking system and flexible payment options'
         },
         step3: {
-          title: 'Launch',
-          description: 'Go live and start accepting bookings'
+          title: 'Experience',
+          description: 'Enjoy your authentic Moroccan adventure with full support from our team'
         }
       },
       
       // Testimonials
       testimonials: {
-        title: 'What Our Customers Say',
-        subtitle: 'Loved by Service Providers Worldwide'
+        title: 'What Our Travelers Say',
+        subtitle: 'Real experiences from real travelers'
       },
       
       // CTA
       cta: {
-        title: 'Ready to Transform Your Business?',
-        subtitle: 'Join thousands of service providers who have grown their business with our platform'
+        title: 'Ready for Your Moroccan Adventure?',
+        subtitle: 'Join thousands of travelers who have discovered the magic of Morocco with us'
       }
+    },
+    listings: {
+      title: 'Explore Our Listings',
+      subtitle: 'Discover amazing places and experiences',
+      searchPlaceholder: 'Search listings...',
+      noResults: 'No listings found',
+      clearFilters: 'Clear Filters',
+      showingResults: 'Showing {{count}} of {{total}} listings',
+      categories: {
+        all: 'All Categories',
+        accommodation: 'Accommodation',
+        activity: 'Activities',
+        'surf-lesson': 'Surf Lessons',
+        tour: 'Tours',
+        rental: 'Rentals'
+      }
+    },
+    packages: {
+      title: 'Travel Packages',
+      subtitle: 'Curated experiences for unforgettable journeys',
+      duration: 'Duration',
+      groupSize: 'Group Size',
+      includes: 'Package Includes',
+      highlights: 'Experience Highlights',
+      perPerson: 'per person',
+      customPackage: 'Create Custom Package'
+    },
+    blog: {
+      title: 'Travel Blog',
+      subtitle: 'Stories, tips, and insights from Morocco',
+      readTime: 'min read',
+      author: 'Author',
+      publishedOn: 'Published on',
+      relatedPosts: 'Related Posts',
+      categories: {
+        all: 'All Categories',
+        travel: 'Travel Tips',
+        culture: 'Culture',
+        food: 'Food & Cuisine',
+        adventure: 'Adventure'
+      }
+    },
+    dashboard: {
+      title: 'Dashboard',
+      welcome: 'Welcome back',
+      overview: 'Overview',
+      bookings: 'My Bookings',
+      favorites: 'Favorites',
+      profile: 'Profile',
+      settings: 'Settings',
+      totalBookings: 'Total Bookings',
+      totalSpent: 'Total Spent',
+      upcomingTrips: 'Upcoming Trips',
+      recentActivity: 'Recent Activity'
     }
   },
   fr: {
@@ -113,8 +196,10 @@ const resources = {
       packages: 'Forfaits',
       blog: 'Blog',
       contact: 'Contact',
+      dashboard: 'Tableau de bord',
       signin: 'Se connecter',
-      signup: 'Essai gratuit',
+      signup: 'S\'inscrire',
+      logout: 'Déconnexion',
       
       // Common actions
       learnMore: 'En savoir plus',
@@ -123,6 +208,33 @@ const resources = {
       startFreeTrial: 'Essai gratuit',
       contactSales: 'Contacter les ventes',
       readMore: 'Lire la suite',
+      bookNow: 'Réserver maintenant',
+      viewDetails: 'Voir les détails',
+      search: 'Rechercher',
+      filter: 'Filtrer',
+      sort: 'Trier',
+      save: 'Enregistrer',
+      cancel: 'Annuler',
+      edit: 'Modifier',
+      delete: 'Supprimer',
+      
+      // Form fields
+      name: 'Nom',
+      email: 'Email',
+      phone: 'Téléphone',
+      message: 'Message',
+      subject: 'Sujet',
+      password: 'Mot de passe',
+      confirmPassword: 'Confirmer le mot de passe',
+      
+      // Status
+      loading: 'Chargement...',
+      error: 'Erreur',
+      success: 'Succès',
+      pending: 'En attente',
+      confirmed: 'Confirmé',
+      cancelled: 'Annulé',
+      completed: 'Terminé',
       
       // Footer
       stayUpdated: 'Restez informé',
@@ -131,75 +243,130 @@ const resources = {
       allRightsReserved: 'Tous droits réservés',
       
       // Company info
-      companyName: 'SaaSify',
-      companyTagline: 'Renforcez votre entreprise de services avec notre plateforme complète. Des annonces aux réservations, nous avons tout ce dont vous avez besoin pour grandir.',
-      trustedBy: 'Approuvé par plus de 1000 prestataires de services'
+      companyName: 'TaghazoutTimes',
+      companyTagline: 'Votre porte d\'entrée vers des expériences marocaines authentiques et des aventures inoubliables.',
+      trustedBy: 'Approuvé par plus de 1000 voyageurs dans le monde'
     },
     home: {
       // Hero section
-      heroTitle: 'Créez votre site web d\'entreprise de services en',
-      heroTitleHighlight: 'Minutes',
-      heroSubtitle: 'Parfait pour les écoles de surf, les propriétés de location, les tour-opérateurs et les entreprises d\'hospitalité. Créez de superbes sites web avec des systèmes de réservation intégrés.',
+      heroTitle: 'Découvrez le Maroc Authentique',
+      heroTitleHighlight: 'À Votre Façon',
+      heroSubtitle: 'Des cours de surf à Taghazout aux riads de luxe à Marrakech. Découvrez le Maroc à travers les yeux des locaux avec notre sélection d\'hébergements, d\'activités et d\'aventures.',
       
       // Features
       features: {
-        title: 'Notre Plateforme',
-        subtitle: 'Tout ce dont vous avez besoin pour réussir',
-        description: 'Conçu spécifiquement pour les entreprises de services avec tous les outils dont vous avez besoin',
-        quickSetup: {
-          title: 'Configuration rapide',
-          description: 'Lancez votre site web professionnel en quelques minutes avec nos modèles faciles à utiliser.'
+        title: 'Pourquoi Nous Choisir',
+        subtitle: 'Tout Ce Dont Vous Avez Besoin Pour Le Voyage Parfait',
+        description: 'Expériences soigneusement sélectionnées qui mettent en valeur le meilleur de la culture et de l\'hospitalité marocaines',
+        authentic: {
+          title: 'Expériences Authentiques',
+          description: 'Connectez-vous à la culture locale grâce à des expériences authentiques guidées localement.'
         },
-        multilingual: {
-          title: 'Support multilingue',
-          description: 'Atteignez un public mondial avec des fonctions intégrées de traduction et de localisation.'
-        },
-        secure: {
-          title: 'Sécurisé et fiable',
-          description: 'Sécurité de niveau entreprise avec une garantie de disponibilité de 99,9% pour votre entreprise.'
+        verified: {
+          title: 'Prestataires Vérifiés',
+          description: 'Tous nos partenaires sont soigneusement vérifiés pour la qualité et l\'authenticité.'
         },
         support: {
           title: 'Support 24/7',
-          description: 'Obtenez de l\'aide quand vous en avez besoin avec notre équipe de support client dédiée.'
+          description: 'Obtenez de l\'aide dans votre langue quand vous en avez besoin pendant votre voyage.'
+        },
+        multilingual: {
+          title: 'Service Multilingue',
+          description: 'Support complet en anglais, français et arabe pour une communication fluide.'
         }
       },
       
-      // Benefits
-      benefits: {
-        noSetupFees: 'Aucun frais d\'installation',
-        freeTrial: 'Essai gratuit de 14 jours',
-        cancelAnytime: 'Annulez à tout moment'
+      // Stats
+      stats: {
+        destinations: 'Destinations',
+        happyTravelers: 'Voyageurs Heureux',
+        averageRating: 'Note Moyenne',
+        successRate: 'Taux de Réussite'
       },
       
       // How it works
       howItWorks: {
-        title: 'Comment ça marche',
-        subtitle: 'Commencez en seulement trois étapes simples',
+        title: 'Comment Ça Marche',
+        subtitle: 'Planifiez votre aventure marocaine parfaite en trois étapes simples',
         step1: {
-          title: 'S\'inscrire',
-          description: 'Créez votre compte et choisissez votre plan'
+          title: 'Explorer',
+          description: 'Parcourez notre sélection d\'hébergements, d\'activités et d\'expériences'
         },
         step2: {
-          title: 'Personnaliser',
-          description: 'Configurez votre marque et configurez vos services'
+          title: 'Réserver',
+          description: 'Sécurisez votre place avec notre système de réservation facile et des options de paiement flexibles'
         },
         step3: {
-          title: 'Lancer',
-          description: 'Mettez en ligne et commencez à accepter les réservations'
+          title: 'Expérimenter',
+          description: 'Profitez de votre aventure marocaine authentique avec le soutien complet de notre équipe'
         }
       },
       
       // Testimonials
       testimonials: {
-        title: 'Ce que disent nos clients',
-        subtitle: 'Aimé par les prestataires de services du monde entier'
+        title: 'Ce Que Disent Nos Voyageurs',
+        subtitle: 'Expériences réelles de vrais voyageurs'
       },
       
       // CTA
       cta: {
-        title: 'Prêt à transformer votre entreprise ?',
-        subtitle: 'Rejoignez des milliers de prestataires de services qui ont développé leur activité avec notre plateforme'
+        title: 'Prêt Pour Votre Aventure Marocaine?',
+        subtitle: 'Rejoignez des milliers de voyageurs qui ont découvert la magie du Maroc avec nous'
       }
+    },
+    listings: {
+      title: 'Explorez Nos Annonces',
+      subtitle: 'Découvrez des lieux et expériences incroyables',
+      searchPlaceholder: 'Rechercher des annonces...',
+      noResults: 'Aucune annonce trouvée',
+      clearFilters: 'Effacer les Filtres',
+      showingResults: 'Affichage de {{count}} sur {{total}} annonces',
+      categories: {
+        all: 'Toutes les Catégories',
+        accommodation: 'Hébergement',
+        activity: 'Activités',
+        'surf-lesson': 'Cours de Surf',
+        tour: 'Tours',
+        rental: 'Locations'
+      }
+    },
+    packages: {
+      title: 'Forfaits Voyage',
+      subtitle: 'Expériences organisées pour des voyages inoubliables',
+      duration: 'Durée',
+      groupSize: 'Taille du Groupe',
+      includes: 'Le Forfait Comprend',
+      highlights: 'Points Forts de l\'Expérience',
+      perPerson: 'par personne',
+      customPackage: 'Créer un Forfait Personnalisé'
+    },
+    blog: {
+      title: 'Blog de Voyage',
+      subtitle: 'Histoires, conseils et aperçus du Maroc',
+      readTime: 'min de lecture',
+      author: 'Auteur',
+      publishedOn: 'Publié le',
+      relatedPosts: 'Articles Connexes',
+      categories: {
+        all: 'Toutes les Catégories',
+        travel: 'Conseils de Voyage',
+        culture: 'Culture',
+        food: 'Nourriture et Cuisine',
+        adventure: 'Aventure'
+      }
+    },
+    dashboard: {
+      title: 'Tableau de Bord',
+      welcome: 'Bon retour',
+      overview: 'Aperçu',
+      bookings: 'Mes Réservations',
+      favorites: 'Favoris',
+      profile: 'Profil',
+      settings: 'Paramètres',
+      totalBookings: 'Total des Réservations',
+      totalSpent: 'Total Dépensé',
+      upcomingTrips: 'Voyages à Venir',
+      recentActivity: 'Activité Récente'
     }
   },
   ar: {
@@ -212,8 +379,10 @@ const resources = {
       packages: 'الباقات',
       blog: 'المدونة',
       contact: 'اتصل بنا',
+      dashboard: 'لوحة التحكم',
       signin: 'تسجيل الدخول',
-      signup: 'تجربة مجانية',
+      signup: 'إنشاء حساب',
+      logout: 'تسجيل الخروج',
       
       // Common actions
       learnMore: 'اعرف المزيد',
@@ -222,6 +391,33 @@ const resources = {
       startFreeTrial: 'تجربة مجانية',
       contactSales: 'اتصل بالمبيعات',
       readMore: 'اقرأ المزيد',
+      bookNow: 'احجز الآن',
+      viewDetails: 'عرض التفاصيل',
+      search: 'بحث',
+      filter: 'تصفية',
+      sort: 'ترتيب',
+      save: 'حفظ',
+      cancel: 'إلغاء',
+      edit: 'تعديل',
+      delete: 'حذف',
+      
+      // Form fields
+      name: 'الاسم',
+      email: 'البريد الإلكتروني',
+      phone: 'الهاتف',
+      message: 'الرسالة',
+      subject: 'الموضوع',
+      password: 'كلمة المرور',
+      confirmPassword: 'تأكيد كلمة المرور',
+      
+      // Status
+      loading: 'جاري التحميل...',
+      error: 'خطأ',
+      success: 'نجح',
+      pending: 'في الانتظار',
+      confirmed: 'مؤكد',
+      cancelled: 'ملغي',
+      completed: 'مكتمل',
       
       // Footer
       stayUpdated: 'ابق على اطلاع',
@@ -230,75 +426,130 @@ const resources = {
       allRightsReserved: 'جميع الحقوق محفوظة',
       
       // Company info
-      companyName: 'SaaSify',
-      companyTagline: 'قوي أعمالك الخدمية مع منصتنا الشاملة. من القوائم إلى الحجوزات، لدينا كل ما تحتاجه للنمو.',
-      trustedBy: 'موثوق به من قبل أكثر من 1000 مقدم خدمة'
+      companyName: 'TaghazoutTimes',
+      companyTagline: 'بوابتك إلى التجارب المغربية الأصيلة والمغامرات التي لا تُنسى.',
+      trustedBy: 'موثوق به من قبل أكثر من 1000 مسافر حول العالم'
     },
     home: {
       // Hero section
-      heroTitle: 'أنشئ موقع أعمالك الخدمية في',
-      heroTitleHighlight: 'دقائق',
-      heroSubtitle: 'مثالي لمدارس الرياضة المائية، العقارات المؤجرة، منظمي الرحلات، وأعمال الضيافة. أنشئ مواقع رائعة مع أنظمة حجز متكاملة.',
+      heroTitle: 'اكتشف المغرب الأصيل',
+      heroTitleHighlight: 'بطريقتك',
+      heroSubtitle: 'من دروس ركوب الأمواج في تغازوت إلى الرياض الفاخرة في مراكش. اختبر المغرب من خلال عيون السكان المحليين مع مجموعتنا المختارة من أماكن الإقامة والأنشطة والمغامرات.',
       
       // Features
       features: {
-        title: 'منصتنا',
-        subtitle: 'كل ما تحتاجه للنجاح',
-        description: 'مصمم خصيصاً للأعمال الخدمية مع جميع الأدوات التي تحتاجها',
-        quickSetup: {
-          title: 'إعداد سريع',
-          description: 'أطلق موقعك المهني في دقائق بقوالبنا سهلة الاستخدام.'
+        title: 'لماذا تختارنا',
+        subtitle: 'كل ما تحتاجه للرحلة المثالية',
+        description: 'تجارب مختارة بعناية تعرض أفضل ما في الثقافة والضيافة المغربية',
+        authentic: {
+          title: 'تجارب أصيلة',
+          description: 'تواصل مع الثقافة المحلية من خلال تجارب حقيقية بإرشاد محلي.'
         },
-        multilingual: {
-          title: 'دعم متعدد اللغات',
-          description: 'اوصل لجمهور عالمي مع ميزات الترجمة والتوطين المدمجة.'
-        },
-        secure: {
-          title: 'آمن وموثوق',
-          description: 'أمان على مستوى المؤسسات مع ضمان توفر 99.9% لعملك.'
+        verified: {
+          title: 'مقدمو خدمات موثقون',
+          description: 'جميع شركائنا تم فحصهم بعناية للجودة والأصالة.'
         },
         support: {
           title: 'دعم 24/7',
-          description: 'احصل على المساعدة متى احتجتها مع فريق دعم العملاء المخصص لدينا.'
+          description: 'احصل على المساعدة بلغتك متى احتجتها أثناء رحلتك.'
+        },
+        multilingual: {
+          title: 'خدمة متعددة اللغات',
+          description: 'دعم كامل بالإنجليزية والفرنسية والعربية للتواصل السلس.'
         }
       },
       
-      // Benefits
-      benefits: {
-        noSetupFees: 'بدون رسوم إعداد',
-        freeTrial: 'تجربة مجانية لمدة 14 يوم',
-        cancelAnytime: 'إلغاء في أي وقت'
+      // Stats
+      stats: {
+        destinations: 'الوجهات',
+        happyTravelers: 'المسافرون السعداء',
+        averageRating: 'التقييم المتوسط',
+        successRate: 'معدل النجاح'
       },
       
       // How it works
       howItWorks: {
         title: 'كيف يعمل',
-        subtitle: 'ابدأ في ثلاث خطوات بسيطة فقط',
+        subtitle: 'خطط لمغامرتك المغربية المثالية في ثلاث خطوات بسيطة',
         step1: {
-          title: 'سجل',
-          description: 'أنشئ حسابك واختر خطتك'
+          title: 'استكشف',
+          description: 'تصفح مجموعتنا المختارة من أماكن الإقامة والأنشطة والتجارب'
         },
         step2: {
-          title: 'خصص',
-          description: 'أعد علامتك التجارية وكون خدماتك'
+          title: 'احجز',
+          description: 'احجز مكانك بنظام الحجز السهل وخيارات الدفع المرنة'
         },
         step3: {
-          title: 'أطلق',
-          description: 'انطلق وابدأ قبول الحجوزات'
+          title: 'اختبر',
+          description: 'استمتع بمغامرتك المغربية الأصيلة مع الدعم الكامل من فريقنا'
         }
       },
       
       // Testimonials
       testimonials: {
-        title: 'ماذا يقول عملاؤنا',
-        subtitle: 'محبوب من قبل مقدمي الخدمات عالمياً'
+        title: 'ماذا يقول مسافرونا',
+        subtitle: 'تجارب حقيقية من مسافرين حقيقيين'
       },
       
       // CTA
       cta: {
-        title: 'مستعد لتحويل أعمالك؟',
-        subtitle: 'انضم إلى آلاف مقدمي الخدمات الذين نموا أعمالهم مع منصتنا'
+        title: 'مستعد لمغامرتك المغربية؟',
+        subtitle: 'انضم إلى آلاف المسافرين الذين اكتشفوا سحر المغرب معنا'
       }
+    },
+    listings: {
+      title: 'استكشف قوائمنا',
+      subtitle: 'اكتشف أماكن وتجارب مذهلة',
+      searchPlaceholder: 'البحث في القوائم...',
+      noResults: 'لم يتم العثور على قوائم',
+      clearFilters: 'مسح المرشحات',
+      showingResults: 'عرض {{count}} من {{total}} قائمة',
+      categories: {
+        all: 'جميع الفئات',
+        accommodation: 'الإقامة',
+        activity: 'الأنشطة',
+        'surf-lesson': 'دروس ركوب الأمواج',
+        tour: 'الجولات',
+        rental: 'الإيجارات'
+      }
+    },
+    packages: {
+      title: 'باقات السفر',
+      subtitle: 'تجارب منظمة لرحلات لا تُنسى',
+      duration: 'المدة',
+      groupSize: 'حجم المجموعة',
+      includes: 'تشمل الباقة',
+      highlights: 'أبرز معالم التجربة',
+      perPerson: 'للشخص الواحد',
+      customPackage: 'إنشاء باقة مخصصة'
+    },
+    blog: {
+      title: 'مدونة السفر',
+      subtitle: 'قصص ونصائح ورؤى من المغرب',
+      readTime: 'دقيقة قراءة',
+      author: 'الكاتب',
+      publishedOn: 'نُشر في',
+      relatedPosts: 'المقالات ذات الصلة',
+      categories: {
+        all: 'جميع الفئات',
+        travel: 'نصائح السفر',
+        culture: 'الثقافة',
+        food: 'الطعام والمأكولات',
+        adventure: 'المغامرة'
+      }
+    },
+    dashboard: {
+      title: 'لوحة التحكم',
+      welcome: 'مرحباً بعودتك',
+      overview: 'نظرة عامة',
+      bookings: 'حجوزاتي',
+      favorites: 'المفضلة',
+      profile: 'الملف الشخصي',
+      settings: 'الإعدادات',
+      totalBookings: 'إجمالي الحجوزات',
+      totalSpent: 'إجمالي المبلغ المنفق',
+      upcomingTrips: 'الرحلات القادمة',
+      recentActivity: 'النشاط الأخير'
     }
   }
 };

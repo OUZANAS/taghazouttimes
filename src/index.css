@@ -2,9 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Design system with enhanced colors, gradients, and animations */
 
 @layer base {
   :root {
@@ -39,27 +37,23 @@ All colors MUST be HSL.
 
     --radius: 0.75rem;
     
-    /* Custom gradients and effects */
+    /* Enhanced gradients and effects */
     --gradient-primary: linear-gradient(135deg, hsl(210 100% 45%), hsl(210 100% 55%));
     --gradient-hero: linear-gradient(135deg, hsl(210 100% 45% / 0.1), hsl(45 100% 70% / 0.1));
+    --gradient-accent: linear-gradient(135deg, hsl(45 100% 70%), hsl(45 100% 80%));
     --shadow-elegant: 0 20px 40px -10px hsl(210 100% 45% / 0.2);
     --shadow-glow: 0 0 50px hsl(210 100% 55% / 0.4);
+    --shadow-soft: 0 10px 30px -5px hsl(210 100% 45% / 0.1);
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -107,6 +101,15 @@ All colors MUST be HSL.
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+
+  /* RTL Support */
+  [dir="rtl"] {
+    direction: rtl;
+  }
+
+  [dir="rtl"] .rtl\:rotate-180 {
+    transform: rotate(180deg);
+  }
 }
 
 @layer base {
@@ -117,10 +120,28 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   }
   
   html {
     scroll-behavior: smooth;
+  }
+
+  /* Improved typography */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+  }
+
+  p {
+    line-height: 1.6;
+  }
+
+  /* Enhanced focus styles */
+  *:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
   }
 }
 
@@ -144,7 +165,7 @@ All colors MUST be HSL.
   
   .floating-card {
     backdrop-filter: blur(20px);
-    background: hsl(var(--card) / 0.8);
+    background: hsl(var(--card) / 0.9);
     border: 1px solid hsl(var(--border) / 0.2);
     box-shadow: var(--shadow-elegant);
     transition: var(--transition-smooth);
@@ -159,6 +180,23 @@ All colors MUST be HSL.
     background: var(--gradient-primary);
     box-shadow: 0 4px 20px hsl(var(--primary) / 0.4);
     transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .btn-primary-glow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+  }
+  
+  .btn-primary-glow:hover::before {
+    left: 100%;
   }
   
   .btn-primary-glow:hover {
@@ -171,6 +209,43 @@ All colors MUST be HSL.
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+  }
+
+  .bg-grid-pattern {
+    background-image: radial-gradient(circle at 1px 1px, hsl(var(--muted-foreground) / 0.15) 1px, transparent 0);
+    background-size: 20px 20px;
+  }
+
+  /* Enhanced animations */
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
+  }
+
+  .animate-slide-in-left {
+    animation: slideInLeft 0.6s ease-out forwards;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.6s ease-out forwards;
+  }
+
+  /* Improved line clamping */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 }
 
@@ -194,13 +269,175 @@ All colors MUST be HSL.
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+
+  .text-gradient-accent {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Enhanced spacing system */
+  .space-y-section {
+    & > * + * {
+      margin-top: 6rem;
+    }
+  }
+
+  /* Improved responsive utilities */
+  .container-responsive {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Enhanced hover effects */
+  .hover-lift {
+    transition: var(--transition-smooth);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-soft);
+  }
+
+  /* Glass morphism effect */
+  .glass {
+    backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.125);
+  }
+
+  .glass-dark {
+    backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(0, 0, 0, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.125);
+  }
 }
 
+/* Enhanced keyframes */
 @keyframes float {
   0%, 100% {
     transform: translateY(0);
   }
   50% {
     transform: translateY(-20px);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  background-size: 200px 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Improved scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
+}
+
+/* Enhanced mobile responsiveness */
+@media (max-width: 640px) {
+  .container-responsive {
+    @apply px-4;
+  }
+  
+  .text-4xl {
+    @apply text-3xl;
+  }
+  
+  .text-6xl {
+    @apply text-4xl;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .floating-card {
+    border: 2px solid hsl(var(--border));
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

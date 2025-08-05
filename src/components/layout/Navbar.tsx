@@ -1,11 +1,10 @@
-
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Menu, X, User, Waves } from 'lucide-react';
 import { AuthModal } from '@/components/auth/AuthModal';
-import { HomeSelector } from '@/components/ui/home-selector';
 import { LanguageSwitcher } from './LanguageSwitcher';
 
 export const Navbar = () => {
@@ -33,35 +32,58 @@ export const Navbar = () => {
 
   return (
     <>
-      <nav className="bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border sticky top-0 z-50">
+      <motion.nav 
+        className="bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border sticky top-0 z-50"
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
-            <Link to="/" className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-lg">
-                <Waves className="w-6 h-6 text-primary-foreground" />
-              </div>
-              <span className="font-bold text-xl text-foreground">TaghazoutTimes</span>
-            </Link>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.2 }}
+            >
+              <Link to="/" className="flex items-center space-x-3">
+                <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-lg">
+                  <Waves className="w-6 h-6 text-primary-foreground" />
+                </div>
+                <span className="font-bold text-xl text-foreground">TaghazoutTimes</span>
+              </Link>
+            </motion.div>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
-              <HomeSelector />
-              {navItems.map((item) => (
-                <Link
+              {navItems.map((item, index) => (
+                <motion.div
                   key={item.name}
-                  to={item.href}
-                  className={`text-sm font-medium transition-colors hover:text-primary ${
-                    isActive(item.href) ? 'text-primary' : 'text-muted-foreground'
-                  }`}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
                 >
-                  {item.name}
-                </Link>
+                  <Link
+                    to={item.href}
+                    className={`text-sm font-medium transition-all duration-300 hover:text-primary relative ${
+                      isActive(item.href) ? 'text-primary' : 'text-muted-foreground'
+                    }`}
+                  >
+                    {item.name}
+                    {isActive(item.href) && (
+                      <motion.div
+                        className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full"
+                        layoutId="activeTab"
+                        transition={{ duration: 0.3 }}
+                      />
+                    )}
+                  </Link>
+                </motion.div>
               ))}
             </div>
 
             {/* Desktop Actions */}
             <div className="hidden md:flex items-center space-x-4">
+              <LanguageSwitcher />
               <Button
                 variant="ghost"
                 onClick={() => handleAuthClick('login')}
@@ -76,7 +98,8 @@ export const Navbar = () => {
             </div>
 
             {/* Mobile menu button */}
-            <div className="md:hidden">
+            <div className="md:hidden flex items-center space-x-2">
+              <LanguageSwitcher />
               <Button
                 variant="ghost"
                 size="icon"
@@ -89,63 +112,57 @@ export const Navbar = () => {
         </div>
 
         {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="md:hidden border-t border-border bg-background">
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              <div className="px-3 py-2">
-                <HomeSelector />
-              </div>
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  onClick={() => setIsOpen(false)}
-                  className={`block px-3 py-2 text-base font-medium rounded-md transition-colors ${
-                    isActive(item.href)
-                      ? 'text-primary bg-accent'
-                      : 'text-muted-foreground hover:text-foreground hover:bg-accent'
-                  }`}
+        <motion.div
+          initial={{ height: 0, opacity: 0 }}
+          animate={{ 
+            height: isOpen ? 'auto' : 0, 
+            opacity: isOpen ? 1 : 0 
+          }}
+          transition={{ duration: 0.3 }}
+          className="md:hidden border-t border-border bg-background overflow-hidden"
+        >
+          <div className="px-2 pt-2 pb-3 space-y-1">
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                to={item.href}
+                onClick={() => setIsOpen(false)}
+                className={`block px-3 py-2 text-base font-medium rounded-md transition-colors ${
+                  isActive(item.href)
+                    ? 'text-primary bg-accent'
+                    : 'text-muted-foreground hover:text-foreground hover:bg-accent'
+                }`}
+              >
+                {item.name}
+              </Link>
+            ))}
+            <div className="pt-4 pb-3 border-t border-border">
+              <div className="px-3 space-y-2">
+                <Button
+                  variant="ghost"
+                  onClick={() => {
+                    setIsOpen(false);
+                    handleAuthClick('login');
+                  }}
+                  className="w-full justify-start"
                 >
-                  {item.name}
-                </Link>
-              ))}
-              <div className="pt-4 pb-3 border-t border-border">
-                <div className="px-3 space-y-2">
-                  <Button
-                    variant="ghost"
-                    onClick={() => {
-                      setIsOpen(false);
-                      handleAuthClick('login');
-                    }}
-                    className="w-full justify-start"
-                  >
-                    <User className="w-4 h-4 mr-2" />
-                    {t('signin')}
-                  </Button>
-                  <Button
-                    onClick={() => {
-                      setIsOpen(false);
-                      handleAuthClick('signup');
-                    }}
-                    className="w-full"
-                  >
-                    {t('signup')}
-                  </Button>
-                </div>
+                  <User className="w-4 h-4 mr-2" />
+                  {t('signin')}
+                </Button>
+                <Button
+                  onClick={() => {
+                    setIsOpen(false);
+                    handleAuthClick('signup');
+                  }}
+                  className="w-full"
+                >
+                  {t('signup')}
+                </Button>
               </div>
             </div>
           </div>
-        )}
-      </nav>
-      
-      {/* Language Switcher Below Navbar */}
-      <div className="bg-muted/30 border-b border-border py-2">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-end">
-            <LanguageSwitcher />
-          </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.nav>
 
       <AuthModal
         isOpen={showAuth}

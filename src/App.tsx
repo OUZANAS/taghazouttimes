@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -8,11 +7,6 @@ import { Navbar } from "./components/layout/Navbar";
 import { Footer } from "./components/layout/Footer";
 import { ScrollToTop } from "./components/ui/scroll-to-top";
 import Index from "./pages/Index";
-import HomeV1 from "./pages/HomeV1";
-import HomeV2 from "./pages/HomeV2";
-import HomeV3 from "./pages/HomeV3";
-import HomeV4 from "./pages/HomeV4";
-import HomeV5 from "./pages/HomeV5";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import Listings from "./pages/Listings";
@@ -30,7 +24,14 @@ import Docs from "./pages/Docs";
 import Community from "./pages/Community";
 import Api from "./pages/Api";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 5 * 60 * 1000, // 5 minutes
+      retry: 1,
+    },
+  },
+});
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -44,11 +45,6 @@ const App = () => (
           <main className="flex-1">
             <Routes>
               <Route path="/" element={<Index />} />
-              <Route path="/home-v1" element={<HomeV1 />} />
-              <Route path="/home-v2" element={<HomeV2 />} />
-              <Route path="/home-v3" element={<HomeV3 />} />
-              <Route path="/home-v4" element={<HomeV4 />} />
-              <Route path="/home-v5" element={<HomeV5 />} />
               <Route path="/about" element={<About />} />
               <Route path="/services" element={<Services />} />
               <Route path="/listings" element={<Listings />} />
@@ -58,6 +54,7 @@ const App = () => (
               <Route path="/blog/:slug" element={<BlogPost />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/dashboard/*" element={<Dashboard />} />
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/terms" element={<Terms />} />
               <Route path="/help" element={<Help />} />
