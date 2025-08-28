@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { DashboardLayout } from '@/components/dashboard/DashboardLayout';
@@ -14,7 +13,9 @@ import {
   Star,
   TrendingUp,
   User,
-  BarChart3
+  BarChart3,
+  Settings,
+  Heart
 } from 'lucide-react';
 import { mockBookings } from '@/data/mockData';
 
@@ -164,7 +165,7 @@ const Dashboard = () => {
                       <div className="text-right space-y-2">
                         <p className="font-semibold">${booking.totalPrice}</p>
                         <Badge className={getStatusColor(booking.status)}>
-                          {t(`common:${booking.status}`)}
+                          {booking.status}
                         </Badge>
                       </div>
                     </motion.div>

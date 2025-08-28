@@ -105,12 +105,12 @@ export const HeroSection = ({ variant = 'default', customContent }: HeroSectionP
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.7 }}
           >
-            <Button variant="glow" size="lg" className="text-lg px-8 py-6 shadow-2xl">
+            <Button variant="glow" size="lg" className="text-xl px-12 py-8 shadow-2xl">
               {customContent?.ctaText || t('common:getStarted')}
-              <ArrowRight className="ml-2 w-5 h-5" />
+              <ArrowRight className="ml-3 w-6 h-6" />
             </Button>
-            <Button size="lg" variant="outline" className="text-lg px-8 py-6 group">
-              <Play className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform" />
+            <Button size="lg" variant="outline" className="text-xl px-12 py-8 backdrop-blur-sm bg-background/80 group">
+              <Play className="mr-3 w-6 h-6 group-hover:scale-110 transition-transform" />
               {t('common:viewDemo')}
             </Button>
           </motion.div>

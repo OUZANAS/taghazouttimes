@@ -2,10 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Badge } from '@/components/ui/badge';
-import { Separator } from '@/components/ui/separator';
 import { 
   LayoutDashboard, 
   Calendar, 
@@ -17,7 +14,8 @@ import {
   Search,
   Plus,
   Menu,
-  X
+  X,
+  Waves
 } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -62,7 +60,7 @@ export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
           <div className="flex h-16 items-center justify-between px-6 border-b">
             <Link to="/" className="flex items-center space-x-2">
               <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-sm">T</span>
+                <Waves className="w-5 h-5 text-primary-foreground" />
               </div>
               <span className="font-bold text-lg">TaghazoutTimes</span>
             </Link>
