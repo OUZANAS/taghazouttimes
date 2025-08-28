@@ -13,9 +13,7 @@ import {
   MapPin, 
   Star,
   TrendingUp,
-  Users,
-  Eye,
-  Edit3,
+  User,
   BarChart3
 } from 'lucide-react';
 import { mockBookings } from '@/data/mockData';

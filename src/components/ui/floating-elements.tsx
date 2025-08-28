@@ -1,27 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Plane, MapPin, Star, Heart, Waves, Sun, Camera } from 'lucide-react';
+import { MapPin, Star, Heart, Waves, Sun, Camera } from 'lucide-react';
 
 export const FloatingElements: React.FC = () => {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {/* Floating Plane */}
-      <motion.div
-        className="absolute top-20 right-10 text-primary/20"
-        animate={{ 
-          x: [0, 30, 0],
-          y: [0, -20, 0],
-          rotate: [0, 10, 0]
-        }}
-        transition={{ 
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      >
-        <Plane className="w-12 h-12" />
-      </motion.div>
-
       {/* Floating Waves */}
       <motion.div
         className="absolute top-32 left-16 text-accent/30"
