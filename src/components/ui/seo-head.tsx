@@ -22,12 +22,14 @@ export const SEOHead = ({
   
   const defaultTitle = t('companyName');
   const defaultDescription = t('companyTagline');
-  const currentUrl = url || window.location.href;
+  const currentUrl = url || (typeof window !== 'undefined' ? window.location.href : '');
   
   const finalTitle = title ? `${title} | ${defaultTitle}` : defaultTitle;
   const finalDescription = description || defaultDescription;
 
   useEffect(() => {
+    if (typeof document === 'undefined') return;
+    
     // Update document title
     document.title = finalTitle;
     

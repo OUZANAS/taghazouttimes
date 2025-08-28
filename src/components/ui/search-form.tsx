@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { Search, MapPin, Calendar, Users, Filter } from 'lucide-react';
+import { Search, MapPin, Calendar, Users } from 'lucide-react';
 import { Button } from './button';
 import { Input } from './input';
 import { Card, CardContent } from './card';
